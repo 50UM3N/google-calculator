@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+* {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    background-color: white;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px;
+    width: 410px;
+    box-shadow: 0px 0px 10px lightgray;
+    border-radius: 10px;
+}
+
+.outputbox {
+    width: 97.1%;
+    height: 77px;
+    border: 1px solid #dfe1e5;
+    border-radius: 4px;
+    margin: 6px;
+}
+
+.historyicon {
+    position: relative;
+    float: left;
+    left: 10px;
+    top: 8px;
+    pointer-events: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 22px;
+    transition: 0.2s linear;
+}
+
+.resultbox {
+    margin: 8px 6px 0px 50px;
+    height: 20px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 15px;
+    color: #70757a;
+    ;
+}
+
+.inputbox {
+    overflow: hidden;
+    margin: 0px 6px 4px 6px;
+    height: 45px;
+    font-size: 30px;
+    line-height: 38px;
+    width: 95%;
+}
+
+.inputbox #calculation {
+    user-select: text;
+    white-space: nowrap;
+    float: right;
+    user-select: text;
+    float: right;
+    white-space: nowrap;
+}
+
+.outputbox:hover {
+    border-color: rgb(163, 163, 163);
+}
+
+.btn {
+    cursor: pointer;
+    width: 87px;
+    margin: 4px;
+}
+
+.char {
+    user-select: none;
+    text-align: center;
+    line-height: 36px;
+    border: 1px;
+    color: #202124;
+    border-radius: 4px;
+}
+
+.number {
+    background: #f1f3f4;
+    border: 1px solid #f1f3f4;
+}
+
+.operator {
+    background: #dfe1e5;
+    border: 1px solid #dfe1e5;
+}
+
+.number:hover {
+    background: #e0e0e0;
+}
+
+.operator:hover {
+    background: #ced0d4;
+}
+
+.number:active {
+    border-color: rgb(163, 163, 163);
+}
+
+.operator:active {
+    border-color: gray;
+}
+
+.equal {
+    background: #4285f4;
+    color: #fff;
+    border: 1px solid #4285f4;
+}
+
+.equal:hover {
+    background: #5a96f6;
+}
+
+.equal:active {
+    border-color: #0054fd;
+    box-shadow: 0px 0px 5px #4285f4;
+}
