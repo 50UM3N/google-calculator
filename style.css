@@ -31,21 +31,85 @@
     border-radius: 4px;
     margin: 6px;
 }
-
-.historyicon {
+.icon{
+    user-select: none;
     position: relative;
     float: left;
-    left: 10px;
-    top: 8px;
+    left: 16px;
+    top: 14px;
+    height: auto;
+    z-index: 2;
+    color: rgb(112, 112, 112);
+}
+.icon:hover{
+    color: black;
+}
+.historyicon {
     pointer-events: none;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
     font-size: 22px;
-    transition: 0.2s linear;
+    z-index: 3;
 }
 
+.historyouter{
+    user-select: none;
+    padding-top: 40px;
+    position: absolute;
+    border: 1px solid lightgray;
+    width: 300px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 10px;
+    height: auto;
+    box-shadow: 0px 0px 10px lightgray;
+
+}
+.historyinner{
+    position: relative;
+    width: auto;
+    max-height: 260px;
+    overflow: auto;
+}
+
+.historyitm{
+    display: flex;
+    justify-content: left;
+    margin: 10px
+}
+.historyitm span{
+    line-height: 29px;
+    color: gray;
+    width: auto;
+}
+.historyBtn{
+    width: auto;
+    background-color: white;
+    padding: 6px 10px 6px 10px;
+    margin: 0px 5px 0px 5px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    cursor: pointer;
+    color: dodgerblue;
+}
+.historyBtn:nth-child(1){
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.historyBtn:nth-child(3){
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.historyBtn:hover{
+    background-color: rgb(233, 233, 233);
+}
+.historyBtn:active{
+    background-color: rgba(45, 118, 255, 0.158);
+}
 .resultbox {
     margin: 8px 6px 0px 50px;
     height: 20px;
@@ -53,7 +117,6 @@
     padding-right: 10px;
     font-size: 15px;
     color: #70757a;
-    ;
 }
 
 .inputbox {
