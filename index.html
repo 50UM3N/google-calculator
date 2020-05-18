@@ -8,10 +8,15 @@
     <title>Calculator</title>
 </head>
 
+
 <body>
     <div class="container">
+        <div class="icon" id="icon" onclick="history()"><i class="historyicon" id="icon">history</i></div>
+        <div class="historyouter" id="history" style="display: none;">
+            <div class="historyinner" id="historyinner"> 
+            </div>
+        </div>
         <div class="outputbox">
-            <i class="historyicon">history</i>
             <div class="resultbox">
                 <span id="answer">
                     Ans = 0
@@ -26,22 +31,22 @@
             <tr>
                 <td>
                     <div class="btn">
-                        <div class="char operator" onclick="btnclk(this.textContent)" >(</div>
+                        <div class="char operator" onclick="btnclk(this.textContent)">(</div>
                     </div>
                 </td>
                 <td>
                     <div class="btn">
-                        <div class="char operator" onclick="btnclk(this.textContent)" >)</div>
+                        <div class="char operator" onclick="btnclk(this.textContent)">)</div>
                     </div>
                 </td>
                 <td>
                     <div class="btn">
-                        <div class="char operator" onclick="btnclk(this.textContent)" >%</div>
+                        <div class="char operator" onclick="btnclk(this.textContent)">%</div>
                     </div>
                 </td>
                 <td>
                     <div class="btn">
-                        <div class="char operator" id="clear" onclick="btnclk(this.textContent)" >AC</div>
+                        <div class="char operator" id="clear" onclick="btnclk(this.textContent)">AC</div>
                     </div>
                 </td>
             </tr>
@@ -58,7 +63,7 @@
                 </td>
                 <td>
                     <div class="btn">
-                        <div class="char number" onclick="btnclk(this.textContent)">9</div>
+                        <div class="char number"  onclick="btnclk(this.textContent)">9</div>
                     </div>
                 </td>
                 <td>
