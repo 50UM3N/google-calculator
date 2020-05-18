@@ -162,7 +162,7 @@ document.onclick = function (e) {
 
 window.addEventListener('mouseup', function (e) {
     let divToHide = document.getElementById('history');
-    if (e.target !== divToHide && e.target !== document.getElementById('historyinner') && e.target !== document.getElementById('historyitm')) {
+    if (e.target !== divToHide && e.target!==document.getElementById('icon') && e.target !== document.getElementById('historyinner') && e.target !== document.getElementById('historyitm')) {
         divToHide.style.display = 'none';
         document.querySelector('.icon').style.color = "rgb(112, 112, 112)";
         flag.history = false;
