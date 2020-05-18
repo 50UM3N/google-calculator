@@ -2,6 +2,7 @@ var flag = {
     numberflg: false,
     brflg1: false,
     brflg2: false,
+    history: false,
     brcount: 0
 };
 function btnclk(a) {
@@ -81,15 +82,7 @@ function btnclk(a) {
     if (a == "+")
         data = write() + a;
 
-    if (a == "=") {
-        document.getElementById('answer').innerHTML=data+" ="
-        data = eval(data);
-        if (data=="undefined") {
-            data= "Error";
-        }
-        flag.numberflg = false;
-        document.getElementById('clear').innerHTML = "AC";
-    }
+
     if (a == "CE") {
         let key, temp = "";
         key = data.slice(data.length - 1, data.length);
@@ -112,7 +105,7 @@ function btnclk(a) {
                     flag.brflg1 = false;
                     if (data == "") {
                         data = 0;
-                        flag.numberflg=false;
+                        flag.numberflg = false;
                         break brakename;
                     }
                 }
@@ -126,9 +119,9 @@ function btnclk(a) {
                         temp += ")";
                     key = data + '<span style="color: lightgray;">' + temp + '</span';
                 }
-                else{
+                else {
                     key = 0;
-                    flag.numberflg=false;
+                    flag.numberflg = false;
                 }
             }
             data = key;
@@ -142,5 +135,129 @@ function btnclk(a) {
     if (flag.numberflg) {
         document.getElementById('clear').innerHTML = "CE";
     }
+    if (a == "=") {
+        document.getElementById('answer').innerHTML = data + " ="
+        let temp = eval(data);
+        if (temp == "undefined") {
+            temp = "Error";
+            flag.numberflg = false;
+        }
+        historyadd(data, temp);
+        data = temp;
+        document.getElementById('clear').innerHTML = "AC";
+    }
     document.getElementById('calculation').innerHTML = data;
+}
+
+
+/*let divToHide = document.getElementById('history');
+let icon = document.getElementById('icon');
+document.onclick = function (e) {
+    if (e.target !== divToHide && e.target !== icon) {
+        divToHide.style.display = 'none';
+        document.querySelector('.icon').style.color = "rgb(112, 112, 112)";
+        flag.history1 = false;
+    }
+};*/
+
+window.addEventListener('mouseup', function (e) {
+    let divToHide = document.getElementById('history');
+    if (e.target !== divToHide && e.target !== document.getElementById('historyinner') && e.target !== document.getElementById('historyitm')) {
+        divToHide.style.display = 'none';
+        document.querySelector('.icon').style.color = "rgb(112, 112, 112)";
+        flag.history = false;
+    }
+});
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode == 13) {
+        btnclk("=");
+    }
+    else if (event.key == 0) {//0
+        btnclk("0");
+    }
+    else if (event.key == 1) {//1
+        btnclk("1");
+    }
+    else if (event.key == 2) {//2
+        btnclk("2");
+    }
+    else if (event.key == 3) {//3
+        btnclk("3");
+    }
+    else if (event.key == 4) {//4
+        btnclk("4");
+    }
+    else if (event.key == 5) {//5
+        btnclk("5");
+    }
+    else if (event.key == 6) {//6
+        btnclk("6");
+    }
+    else if (event.key == 7) {//7
+        btnclk("7");
+    }
+    else if (event.key == 8) {//8
+        btnclk("8");
+    }
+    else if (event.key == 9) {//9
+        btnclk("9");
+    }
+    else if (event.key == "%") {//%
+        btnclk("%");
+    }
+    else if (event.key == "(") {//(
+        btnclk("(");
+    }
+    else if (event.key == ")") {//)
+        btnclk(")");
+    }
+    else if (event.key == "*") {//*
+        btnclk("×");
+    }
+    else if (event.key == "+") {//+
+        btnclk("+");
+    }
+    else if (event.key == "-") {//-
+        btnclk("-");
+    }
+    else if (event.key == ".") {//.
+        btnclk(".");
+    }
+    else if (event.key == "/") {///
+        btnclk("÷");
+    }
+    else if (event.key == 27) {//escape
+        btnclk("AC");
+    }
+    else if (event.keyCode == 8) {//escape
+        btnclk("CE");
+
+    }
+    console.log(event.keyCode + " " + event.key);
+});
+function history() {
+    let his = document.querySelector('.historyinner');
+    if (his.innerHTML.replace(/\s/g, "") != "") {
+        if (flag.history) {
+            document.querySelector('.icon').style.color = "rgb(112, 112, 112)";
+            document.getElementById('history').style.display = "none";
+            flag.history = false;
+
+        }
+        else {
+            document.querySelector('.icon').style.color = "dodgerblue";
+            document.getElementById('history').style.display = "block";
+            flag.history = true;
+        }
+    }
+}
+
+function historyclk(e) {
+    document.getElementById('calculation').innerHTML = e;
+    document.getElementById('clear').innerHTML = "CE";
+    flag.numberflg = true;
+}
+function historyadd(a, b) {
+    let his = document.querySelector('.historyinner');
+    his.innerHTML += '<div class="historyitm" id="historyitm"><div class="historyBtn" onclick="historyclk(this.textContent)">' + a + '</div><span>=</span><div class="historyBtn" onclick="historyclk(this.textContent)">' + b + '</div></div>';
 }
