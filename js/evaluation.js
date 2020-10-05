@@ -9,12 +9,14 @@ function priority(a) {
         return 0;
 }
 
+
 function operand(a) {
     if (a === "^" || a === "*" || a === "/" || a === "+" || a === "-" || a === "%" || a == "(" || a == ")" || a === "÷" || a === "×")
         return 0;
     else
         return 1;
 }
+
 
 function eval(data) {
     var array, infix = [], postfix = [];
@@ -82,6 +84,8 @@ function eval(data) {
         return "undefined";
     }
 }
+
+
 function operation(x, y, z) {
     if (z == "+")
         return x + y;
@@ -95,8 +99,8 @@ function operation(x, y, z) {
         return x / y;
     else if (z == "^")
         return x ** y;
-
 }
+
 
 function evaluate(a) {
     var stack = [];
