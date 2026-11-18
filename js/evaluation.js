@@ -9,7 +9,6 @@ function priority(a) {
         return 0;
 }
 
-
 function operand(a) {
     if (a === "^" || a === "*" || a === "/" || a === "+" || a === "-" || a === "%" || a == "(" || a == ")" || a === "÷" || a === "×")
         return 0;
@@ -17,11 +16,15 @@ function operand(a) {
         return 1;
 }
 
-
 function eval(data) {
-    var array, infix = [], postfix = [];
-    data = "(" + data + ")";
+    var array;
+    var infix = new Array();
+    var postfix = new Array();
     data = data.replace(/\s/g, "");
+    data = data.replace(/(\([^()]+\))([+\-])(\d+(?:\.\d+)?)%/g, "$1$2($1*$3/100)");
+    data = data.replace(/(\d+(?:\.\d+)?)([+\-])(\d+(?:\.\d+)?)%/g, "$1$2($1*$3/100)");
+    data = data.replace(/(\d+(?:\.\d+)?)%/g, "($1/100)");
+    data = "(" + data + ")";
     array = data.split("");
     for (let i = 0, j = 0; i < array.length; i++) {
         if (operand(array[i])) {
@@ -46,7 +49,6 @@ function eval(data) {
         }
     }
 
-    console.log(infix);
     var stack = ["("];
     var i = 1;
     while (i < infix.length) {
@@ -85,7 +87,6 @@ function eval(data) {
     }
 }
 
-
 function operation(x, y, z) {
     if (z == "+")
         return x + y;
@@ -101,9 +102,8 @@ function operation(x, y, z) {
         return x ** y;
 }
 
-
 function evaluate(a) {
-    var stack = [];
+    var stack = new Array();
     var i = 0;
     while (i < a.length) {
         if (operand(a[i])) {
